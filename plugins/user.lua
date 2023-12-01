@@ -9,4 +9,11 @@ return {
   --     require("lsp_signature").setup()
   --   end,
   -- },
+ 
+ {
+  "folke/neodev.nvim",
+  "folke/which-key.nvim",
+  { "folke/neoconf.nvim", cmd = "Neoconf" },
+},
+  --use "rebelot/kanagawa.nvim"
 }

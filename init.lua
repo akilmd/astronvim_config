@@ -16,16 +16,21 @@ return {
       --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
     },
   },
-
+--
   -- Set colorscheme to use
-  colorscheme = "astrodark",
+  -- colorscheme = "catppuccin",
 
+  colorscheme = "kanagawa",
+  relativenumber = "true",
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
     virtual_text = true,
     underline = true,
   },
-
+{
+  "lewis6991/gitsigns.nvim",
+  event = "User AstroGitFile",
+},
   lsp = {
     -- customize lsp formatting options
     formatting = {
@@ -37,6 +42,8 @@ return {
         },
         ignore_filetypes = { -- disable format on save for specified filetypes
           -- "python",
+          "haskell" ,
+          "hs"
         },
       },
       disabled = { -- disable formatting capabilities for the listed language servers
@@ -51,6 +58,7 @@ return {
     -- enable servers that you already have installed without mason
     servers = {
       -- "pyright"
+      -- "hls"
     },
   },
 
@@ -81,5 +89,11 @@ return {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
     -- }
+    -- vim.o.autoread = true
+      vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
+      command = "if mode() != 'c' | checktime | endif",
+      pattern = { "*" },
+    })
+
   end,
 }
