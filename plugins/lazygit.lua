@@ -10,4 +10,4 @@ return{-- nvim v0.8.0
             require("telescope").load_extension("lazygit")
         end,
     },
-} 
+}
